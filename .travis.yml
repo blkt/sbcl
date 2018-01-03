@@ -1,0 +1,11 @@
+language: c
+sudo: true
+install:
+  - sudo apt-get --yes install sbcl texinfo texlive
+script:
+  - echo '"1.4.3.dev"' > version.lisp-expr
+  - ./make.sh
+  - cd tests
+  - sh ./run-tests.sh
+  - cd ../doc/manual/
+  - make
